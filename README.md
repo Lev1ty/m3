@@ -29,6 +29,15 @@ Monitoring My Mobility (M3): Continuous mobility monitoring project.
   - Added delay between `syncWrite` calls
 - Upon adding more features, ran out of memory
 
+### June 10, 2019
+
+- Switch to functional programming to reduce memory footprint
+
+### June 12, 2019
+
+- Determine fixed IP address to send data from companion to be localhost
+- Use mapping between MAC address and user account to identify each device
+
 ## Development Notes
 
 ### June 8, 2019
