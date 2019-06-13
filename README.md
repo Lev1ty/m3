@@ -2,11 +2,53 @@
 
 Monitoring My Mobility (M3): Continuous mobility monitoring project.
 
-## Fitbit SDK Notes
+## Fitbit Web SDK Notes
 
 ### June 13, 2019
 
 - 150 API requests per hour per user
+
+#### Activity
+
+##### Intra-day activity series
+
+> - `GET https://api.fitbit.com/1/user/-/[resource-path]/date/[date]/[date]/[detail-level].json`
+> - `GET https://api.fitbit.com/1/user/-/[resource-path]/date/[date]/1d/[detail-level].json`
+> - `GET https://api.fitbit.com/1/user/-/[resource-path]/date/[date]/[date]/[detail-level]/time/[start-time]/[end-time].json`
+> - `GET https://api.fitbit.com/1/user/-/[resource-path]/date/[date]/1d/[detail-level]/time/[start-time]/[end-time].json`
+> - [resource-path]
+>   - activities/calories
+>   - activities/steps
+>   - activities/distance
+>   - activities/floors
+>   - activities/elevation
+- Timestamp resolution is 1 minute or 15 minutes
+
+##### Other
+
+- Other activity series are available by specific sport
+  - Logging must be activated on device for information to be monitored
+  - Cannot be activated on device because relevant app is a system app
+    - Cannot be programmatically opened
+  - Not feasible
+
+#### Heart Rate
+
+> - `GET https://api.fitbit.com/1/user/-/activities/heart/date/[date]/[end-date]/[detail-level].json`
+> - `GET https://api.fitbit.com/1/user/-/activities/heart/date/[date]/[end-date]/[detail-level]/time/[start-time]/[end-time].json`
+> - `GET https://api.fitbit.com/1/user/-/activities/heart/date/[date]/1d/[detail-level].json`
+> - `GET https://api.fitbit.com/1/user/-/activities/heart/date/[date]/1d/[detail-level]/time/[start-time]/[end-time].json`
+- Timestamp resolution is 1 second or 1 minute
+
+#### Sleep
+
+> - `GET https://api.fitbit.com/1.2/user/[user-id]/sleep/date/[startDate]/[endDate].json`
+- Timestamp resolution is 1 second, only start time
+- Stores intervals of sleep including naps
+  - deep
+  - light
+  - rem
+  - wake
 
 ## Architecture Notes
 
