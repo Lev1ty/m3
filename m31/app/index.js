@@ -58,19 +58,7 @@ class Sensor {
 		this._readings = undefined;
 	}
 }
-const _listDir = listDirSync('/private/data');
-let _dirIter = _listDir.next();
-let fileExists = false;
-while (!_dirIter.done) {
-	if (_dirIter.value === me.applicationId) fileExists = true;
-	_dirIter = listDir.next();
-}
 const file = openSync(me.applicationId, 'a+');
-if (!fileExists) {
-	console.log(me.applicationId);
-	const typedArray = new TextEncoder().encode(me.applicationId);
-	writeSync(file, typedArray.buffer);
-}
 const sensors = {
 	geolocationSensor: new GeolocationSensor({ frequency: .1 }),
 	accelerometer: Sensor.from(Accelerometer, { batch: 10, frequency: .5 }),
