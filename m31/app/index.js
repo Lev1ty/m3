@@ -1,5 +1,5 @@
 import { Accelerometer } from 'accelerometer';
-import { me } from 'appbit'
+import { me } from 'appbit';
 import { Barometer } from 'barometer';
 import { BodyPresenceSensor } from 'body-presence';
 import { display } from 'display';
@@ -12,7 +12,6 @@ import { OrientationSensor } from 'orientation';
 import { charger } from 'power';
 import { memory, launchApp } from 'system';
 import { nextApplicationId, previousApplicationId } from '../common/constants';
-try { unlinkSync(me.applicationId); } catch (error) { console.log(error); }
 class GeolocationSensor {
 	constructor(options) {
 		this.frequency = options.frequency;
@@ -60,13 +59,13 @@ class Sensor {
 }
 const file = openSync(me.applicationId, 'a+');
 const sensors = {
-	geolocationSensor: new GeolocationSensor({ frequency: .1 }),
-	accelerometer: Sensor.from(Accelerometer, { batch: 10, frequency: .5 }),
-	barometer: Sensor.from(Barometer, { batch: 10, frequency: .5 }),
+	geolocationSensor: new GeolocationSensor({ frequency: 0.1 }),
+	accelerometer: Sensor.from(Accelerometer, { batch: 10, frequency: 0.5 }),
+	barometer: Sensor.from(Barometer, { batch: 10, frequency: 0.5 }),
 	bodyPresenceSensor: new BodyPresenceSensor(),
-	gyroscope: Sensor.from(Gyroscope, { batch: 10, frequency: .5 }),
-	heartRateSensor: Sensor.from(HeartRateSensor, { batch: 10, frequency: .5 }),
-	orientationSensor: Sensor.from(OrientationSensor, { batch: 10, frequency: .5 })
+	gyroscope: Sensor.from(Gyroscope, { batch: 10, frequency: 0.5 }),
+	heartRateSensor: Sensor.from(HeartRateSensor, { batch: 10, frequency: 0.5 }),
+	orientationSensor: Sensor.from(OrientationSensor, { batch: 10, frequency: 0.5 })
 };
 const sensorKeys = Object.keys(sensors);
 const stack = [];
@@ -115,7 +114,8 @@ sensorKeys.forEach(sensorKey => {
 				sensorKeys.forEach(sensorKey => {
 					if (sensorKey === 'bodyPresenceSensor') return;
 					const _sensor = sensors[sensorKey];
-					sensor.present ? _sensor.start() : _sensor.stop();
+					if (sensor.present) _sensor.start();
+					else _sensor.stop();
 				});
 				if (sensor.present) {
 					storageQuotaIntervalId = setInterval(() => {
