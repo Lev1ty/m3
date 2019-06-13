@@ -38,6 +38,11 @@ Monitoring My Mobility (M3): Continuous mobility monitoring project.
 - Determine fixed IP address to send data from companion to be localhost
 - Use mapping between MAC address and user account to identify each device
 
+### June 13, 2019
+
+- Use adaptive frequency to sample according to spatial dimensions instead of temporal dimension
+  - Sample more frequently during large variations and less frequently during small variations
+
 ## Development Notes
 
 ### June 8, 2019
@@ -51,3 +56,20 @@ Monitoring My Mobility (M3): Continuous mobility monitoring project.
 - App msg queue is full
   - Appear during console.log
   - App doing too much contiguous work
+
+## Validation Notes
+
+### June 13, 2019
+
+#### Battery Life
+
+- Test each sensor incrementally
+  1. Test without any sensors, only app running
+    - Would include body presence sensor by default
+  2. Test with accelerometer
+  3. Test with accelerometer, and barometer
+  4. Test with accelerometer, barometer, and gyroscope
+  5. Test with accelerometer, barometer, gyroscope, and heart rate sensor
+  6. Test with accelerometer, barometer, gyroscope, heart rate sensor, and orientation sensor
+  7. Test with accelerometer, barometer, gyroscope, heart rate sensor, orientation sensor, and geolocation sensor
+- Test at fixed sampling frequency of 1 Hz
