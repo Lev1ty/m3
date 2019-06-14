@@ -115,3 +115,4 @@ Monitoring My Mobility (M3): Continuous mobility monitoring project.
   6. Test with accelerometer, barometer, gyroscope, heart rate sensor, and orientation sensor
   7. Test with accelerometer, barometer, gyroscope, heart rate sensor, orientation sensor, and geolocation sensor
 - Test at fixed sampling frequency of 1 Hz
+- Perform each test for six hours
