@@ -80,7 +80,8 @@ charger.onchange = () => {
 				if (fileTransfer.readyState !== 'transferred') return;
 				display.onchange = () => display.on = true;
 				display.on = true;
-				unlinkSync(me.applicationId);
+				console.log(statSync(me.applicationId).size);
+				//unlinkSync(me.applicationId);
 				setTimeout(() => {
 					me.onunload = () => launchApp(previousApplicationId);
 					me.exit();
@@ -152,6 +153,6 @@ sensorKeys.forEach(sensorKey => {
 sensors.bodyPresenceSensor.start();
 stack.push = element => {
 	Array.prototype.push.call(stack, element);
-	console.log(element);
+	//console.log(element);
 	writeSync(file, element.buffer);
 };
