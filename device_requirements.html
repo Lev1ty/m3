@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+        <title>Device Requirements</title>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+        
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        
+        
+    </head>
+    <body>
+        <h1 id="Device-Requirements">Device Requirements</h1>
+<h2 id="Constraints">Constraints</h2>
+<ul>
+<li>Battery life with custom software running for 8 days</li>
+<li>Sensor sampling frequency &gt;1/3 Hz</li>
+<li>5 MB storage per sensor
+<ul>
+<li>Enough for 7 days of continuous logging at 1/3 Hz</li>
+</ul>
+</li>
+<li>Sensors
+<ul>
+<li>Accelerometer</li>
+<li>Global Positioning System (GPS)</li>
+</ul>
+</li>
+<li>Data privacy
+<ul>
+<li>Ability to turn off communication capability of device</li>
+<li>Data is stored on device
+<ul>
+<li>5 MB storage per sensor
+<ul>
+<li>Enough for 7 days of continuous logging at 1/3 Hz</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Direct retrieval of GPS and other identifying data
+<ul>
+<li>No first-party (by company of device) logging of data</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Reproducibility of data
+<ul>
+<li>Ability to turn off screen and all user interfacing</li>
+</ul>
+</li>
+</ul>
+<h2 id="Objectives-in-addition-to-Constraints">Objectives (in addition to Constraints)</h2>
+<ul>
+<li>Production at scale
+<ul>
+<li>Potential for automated data retrieval process</li>
+<li>Potential for automated deployment of custom software to all devices</li>
+</ul>
+</li>
+<li>Sensor sampling frequency of 1 Hz</li>
+<li>15 MB per sensor
+<ul>
+<li>Enough for 7 days of continuous logging at 1 Hz</li>
+</ul>
+</li>
+<li>Sensors
+<ul>
+<li>Heart rate (beats per minute)</li>
+<li>Body presence (worn or not)</li>
+<li>Barometer</li>
+<li>Gyroscope</li>
+<li>Orientation (quaternion)</li>
+<li>Oxygenation</li>
+</ul>
+</li>
+</ul>
+
+    </body>
+    </html>
